@@ -2,7 +2,6 @@ source :rubygems
 
 gem 'sinatra'
 gem 'json'
-gem 'dotenv'
 gem 'mongoid'
 gem 'thin'
 
