@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'yajl'
 require 'date'
+require File.expand_path(File.join(File.dirname(__FILE__), 'recommendations'))
 
 RESPONSE_FORMAT = 'json'
 $config = {
@@ -158,3 +159,37 @@ class Persona
   end
 end
 #load 'api_dump.rb' ; p = Persona.new(:rbfish)
+#
+
+class ApiResponse
+  class << self
+    def response_template
+      {
+        name: '',
+        postcode: '',
+        spendings: [],
+        recommendations: []
+      }
+    end
+    
+    def spending_template(cost, other = {})
+      {
+        id:   'energy-bill',
+        name: 'Energy bill',
+        cost: cost.to_f
+      }.merge(other)
+    end
+
+    def recommendations_for(persona_id = :rbfish)
+      template = response_template
+      persona  = Persona.new(persona_id)
+      
+      template[:name]     = persona.g(:name)
+      template[:postocde] = persona.g(:postcode)
+      template[:spendings] << spending_template(persona.energy_bill)
+      template[:recommendations] = $recommendations[persona.property_type.gsub(/\s+/,'').downcase]
+
+      template
+    end
+  end
+end
