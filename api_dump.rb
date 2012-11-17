@@ -1,3 +1,6 @@
+require 'rest-client'
+require 'yajl'
+
 RESPONSE_FORMAT = 'json'
 $config = {
   api_key: 'UUhZv3MitYy6g4afGXgmaQU40fdaSTQM',
@@ -42,7 +45,9 @@ $config = {
   transaction_key: '786OjdaouYhwfd7m24Im' }
 }
 
-def pds_call(persona, data_set)
+$pds_data_sets = %w(field_ds_utility field_ds_personal_details field_ds_home)
+
+def pds_call(persona, data_sets)
   persona = $config[persona]
   base_uri = "https://sbx-api.mydex.org/api/pds/pds/#{persona[:uid]}.#{RESPONSE_FORMAT}"
   opts = {
@@ -50,8 +55,13 @@ def pds_call(persona, data_set)
     api_key: $config[:api_key],
     con_id: persona[:con_id],
     source_type: 'connection',
-    dataset: data_set
+    dataset: data_sets.join(' ')
 
   }
   RestClient.get(base_uri, params: opts)
+end
+
+def go_for_it
+  result = pds_call(:rbfish, $pds_data_sets)
+  Yajl::Parser.parse(result)
 end
