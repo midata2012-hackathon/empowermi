@@ -116,6 +116,10 @@ class Persona
   def initialize(persona_id)
     @persona_id = persona_id
   end
+  
+  def g(what, args = [], fallback = '')
+    self.__send__(what, *args) rescue fallback
+  end
 
   def name
     "#{get(personal, 'personal_fname')} #{get(personal, 'personal_faname')}"
