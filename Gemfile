@@ -10,6 +10,7 @@ gem 'yajl-ruby'
 
 group :development do
   gem 'powder'
+  gem 'shotgun'
   gem 'pry'
   gem 'af' # appfog deployment gem
 end
