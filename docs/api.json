@@ -35,7 +35,24 @@
       "saving" : 300,
       "recomendation" : "New boiler",
       "description": "If you have a old inefficient boiler, a new boiler can give you big savings. Funding avaialbe via the Green Deal."
+    },
+    { 
+      "id": "energy-bill",
+      "saving" : 35,
+      "recomendation" : "Energy monitor",
+      "description": "An energy monitor can show you which applicances are using the most electricity. Studies have shown they can reduce your electricity use by 10%."
+    },
+    { 
+      "id": "energy-bill",
+      "saving" : 37,
+      "recomendation" : "Standby saver",
+      "description": "An energy monitor can show you which applicances are using the most electricity. Studies have shown they can reduce your electricity use by 10%."
+    },
+    { 
+      "id": "energy-bill",
+      "saving" : 50,
+      "recomendation" : "LED bulbs",
+      "description": "If you have halogen downlights replacing them with more efficent LEDs can give you big savings."
     }
-
   ]
 }
