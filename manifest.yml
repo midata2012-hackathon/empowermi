@@ -13,5 +13,5 @@ applications:
     mem: 128M
     instances: 1
     services:
-      empowermi-mongo:
-        type: mongodb
+      empowermi-redis:
+        type: redis
