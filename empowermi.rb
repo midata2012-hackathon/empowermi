@@ -17,5 +17,6 @@ end
 
 get '/api' do
   # change this to serve the generated json when we have the right logic
-  jsonp File.read(Pathname.getwd.join('docs', 'api.json'))
+    content_type :json
+    File.read(Pathname.getwd.join('docs', 'api.json'))
 end
