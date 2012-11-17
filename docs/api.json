@@ -1,4 +1,4 @@
-a = {
+data = {
   name: "Robert Fish",
   postcode: "DN21 6BY",
   
@@ -22,7 +22,20 @@ a = {
       'id': 'energy-bill',
       'saving' : 175,
       'recomendation' : 'Loft insulation',
-      'description': "Loft insulation is one of the most effective ways of keeping heat. Plus there are many free schemes now available."
+      'description': "Loft insulation is one of the most effective ways of keeping heat. Plus there are many free schemes now available from energy companies."
+    },
+    { 
+      'id': 'energy-bill',
+      'saving' : 130,
+      'recomendation' : 'Ground source heat pump',
+      'description': "Heat your home with energy from the ground. Funding available next year via the Renewable Heat Incentive."
+    },
+    { 
+      'id': 'energy-bill',
+      'saving' : 300,
+      'recomendation' : 'New boiler',
+      'description': "If you have a old inefficient boiler, a new boiler can give you big savings. Funding avaialbe via the Green Deal."
     }
+
   ]
 }

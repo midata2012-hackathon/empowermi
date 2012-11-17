@@ -11,7 +11,7 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
 
-  <title>Welcome to Foundation</title>
+  <title>emPowerMi</title>
   
   <!-- Included CSS Files (Uncompressed) -->
   <!--
@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="stylesheets/app.css">
 
   <script src="javascripts/modernizr.foundation.js"></script>
+  <script src="javascripts/d3.v2.min.js"></script>
 
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
@@ -42,15 +43,15 @@
 
   <div class="row">
     <div class="twelve columns">
-      <h2>Dear Mr Fisher</h2>
+      <h2>Dear <span id="name"><span></h2>
     </div>
   </div>
 
   <div class="row">
-    <div class="four columns">
+    <div class="four columns" id="chart">
 		chart	
 	</div>
-    <div class="eight columns">
+    <div class="eight columns" id="recomendations">
 		recomendations
 	</div>
   </div>
@@ -221,6 +222,11 @@
   <!-- Initialize JS Plugins -->
   <script src="javascripts/app.js"></script>
 
+  <script src="../docs/api.json"></script>
+  <!-- <script src="http://empowermi.eu01.aws.af.cm/api"></script> -->
+
+
+  <script src="javascripts/empowermi.js"></script>
   
     <script>
     $(window).load(function(){
