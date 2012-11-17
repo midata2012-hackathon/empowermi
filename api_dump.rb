@@ -46,17 +46,25 @@ $config = {
   transaction_key: '786OjdaouYhwfd7m24Im' }
 }
 
+# $pds_data_sets = %w(field_ds_utility field_ds_personal_details field_ds_home)
+# $transaction_data_sets = %w(
+#   field_ds_bank_transactions
+#   field_ds_cc_transactions
+#   field_ds_journeys
+#   field_ds_loyalty_scheme
+#   field_ds_utility_data_usage
+#   field_ds_utility_meter_readings
+#   field_ds_utility_tel_calls
+#   field_ds_utility_billing
+# )
+# 
 $pds_data_sets = %w(field_ds_utility field_ds_personal_details field_ds_home)
 $transaction_data_sets = %w(
-  field_ds_bank_transactions
-  field_ds_cc_transactions
-  field_ds_journeys
-  field_ds_loyalty_scheme
-  field_ds_utility_data_usage
   field_ds_utility_meter_readings
   field_ds_utility_tel_calls
   field_ds_utility_billing
 )
+
 
 def pds_call(persona_id, data_sets)
   persona = $config[persona_id]
