@@ -1,5 +1,6 @@
 require 'rest-client'
 require 'yajl'
+require 'date'
 
 RESPONSE_FORMAT = 'json'
 $config = {
@@ -124,11 +125,10 @@ class Persona
   end
 
   def energy_bill
-    utility_bills = transaction_data(@persona_id)["field_ds_utility_billing"]
-    utility_bills.find_all { |ut| ut['field_utility_service'].to_s =~ /(electricity|gas)/i }
-    utility_bills.reduce(0) { |acc, bill| acc += bill['field_utility_billing_total'].to_f }
+    bills = transaction_data(@persona_id)["field_ds_utility_billing"]
+    bills = bills.find_all { |ut| ut['field_utility_service'].to_s =~ /(electricity|gas)/i }
+    bills = bills.sort { |b1, b2| Date.strptime(b1['field_utility_billing_start'], '%m/%d/%Y') <=>  Date.strptime(b2['field_utility_billing_start'], '%m/%d/%Y') }
+    bills[0..11].reduce(0) { |acc, bill| acc += bill['field_utility_billing_total'].to_f }
   end
 end
-
-
 
