@@ -1,14 +1,28 @@
 a = {
-	spendings: {
+  name: "Robert Fish",
+  postcode: "DN216BY",
+  
+	spendings: [
+      {
+        'id': 'energy-bill',
+        'name':'Energy bill',
+        'cost':300
+      },
+    ],
 
+	recomendations: [
+    { 
+      'id': 'energy-bill',
+      'cost' : 100,
+      'recomendation' : 'solar power?',
+      'description': "blah blah "
 
-	},
-
-
-	recomendations: {
-
-
-
-	}
-
+    },
+    { 
+      'id': 'energy-bill',
+      'cost' : 200,
+      'recomendation' : 'insulation',
+      'description': "blah blah "
+    }
+  ]
 }
