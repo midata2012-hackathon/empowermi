@@ -3,24 +3,24 @@ a = {
   postcode: "DN216BY",
   
 	spendings: [
-      {
-        'id': 'energy-bill',
-        'name':'Energy bill',
-        'cost':300
-      },
-    ],
+    {
+      'id': 'energy-bill',
+      'name':'Energy bill',
+      'cost':300
+    },
+  ],
 
 	recomendations: [
     { 
       'id': 'energy-bill',
-      'cost' : 100,
+      'saving' : 100,
       'recomendation' : 'solar power?',
       'description': "blah blah "
 
     },
     { 
       'id': 'energy-bill',
-      'cost' : 200,
+      'saving' : 200,
       'recomendation' : 'insulation',
       'description': "blah blah "
     }
