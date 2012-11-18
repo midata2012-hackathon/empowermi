@@ -1,0 +1,29 @@
+Insight and accurate recommendations comes from the mixture of datasets:
+
+
+
+Not just Gas and electricity bills and meter readings!
+
+
+Eg. 
+Mrs Angela Butterworth earns 80,000 a year and has over 15,000 in her bank accound so maybe she has the spare cash to spend on Solar Panels? Plus your money in this saving account earns 3% but if you bought solar panels you would be making an effective return of...
+
+Plus she has an Oil bill - which means she is off the gas grid and so would benefit from a heat pump
+
+
+How can we make assumptions:
+field_home_postcode - SN96PQ
+field_home_property_type - Detached or Flat
+field_home_habitable_rooms - 8
+field_home_bedrooms - 4
+No. of children - 3
+
+Some softer stuff
+Miss Ursula Patten
+field_birth_town  Stokholm
+Maybe recommend some technologies taht are common in scandavia/germany
+
+
+Mr Ben Nelston
+bank with Smile (Co-op bank) so maybe they would respond better to the environmental or ethical message
+
