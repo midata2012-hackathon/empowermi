@@ -3,6 +3,8 @@ require 'sinatra'
 require "sinatra/jsonp"
 require 'json'
 require 'pathname'
+require 'sprockets'
+require 'coffee-script'
 require Pathname.getwd.join 'api_dump'
 
 configure do
@@ -12,8 +14,12 @@ end
 
 set :public_folder, 'public'
 
+def asset_path(asset)
+  "/assets/#{asset}"
+end
+
 get '/' do
-  redirect '/index.html'
+  erb :index
 end
 
 get '/api/?:persona_id?' do |id|

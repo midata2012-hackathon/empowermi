@@ -7,6 +7,8 @@ gem 'thin'
 gem 'sinatra-jsonp'
 gem 'rest-client'
 gem 'yajl-ruby'
+gem 'sprockets'
+gem 'coffee-script'
 
 group :development do
   gem 'powder'
