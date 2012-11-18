@@ -21,7 +21,11 @@ recTemplate = (text, value) ->
   description = $("<span />",
     text: value.description
   )
-  $('<li class="recommended-item">').append(box).append(label).append(description)
+  slug = value.recommendation.toLowerCase().replace(/\s/g, "-")
+  image = $("<img />",
+    src: "images/#{slug}.jpg"
+  )
+  $('<li class="recommended-item">').append(box).append(label).append(image).append(description)
 
 showRec = ->
   container = $("#recommendations ul")
