@@ -18,8 +18,8 @@ recTemplate = (text, value) ->
     for: id
     text: text
   )
-  how_it_works = "<div><strong>How it works:</strong> #{value.how_it_works}</div>" 
-  help_available = "<div><strong>Help available:</strong> #{value.help_available}</div>" 
+  how_it_works = "<div class='how_it_works'><strong>How it works:</strong> #{value.how_it_works}</div>" 
+  help_available = "<div class='help_available'><strong>Help available:</strong> #{value.help_available}</div>" 
 
   slug = value.recommendation.toLowerCase().replace(/\s/g, "-")
   image = $("<img />",
@@ -45,7 +45,7 @@ parse = (personaData) ->
     h.colors[r.recommendation] = r.color
 
 colorForItem = (name) ->
-  Raphael.color h.colors[name] or "#4AE371"
+  Raphael.color h.colors[name] or "#A74A45"
 
 keyStat = "Energy bill"
 
