@@ -50,6 +50,21 @@ div.wrapper{
   float: left;
 }
 
+.recommended-item {
+    padding: 10px 0px 30px 0px;
+}
+.recommended-item label {
+  font-weight: bold;
+}
+
+.recommended-item span {
+  line-height: 1em;
+}
+
+.recommended-item img {
+  vertical-align: top;
+  float: right;
+}
 /* -----------------------------------------
    Page Name 2
 ----------------------------------------- */
