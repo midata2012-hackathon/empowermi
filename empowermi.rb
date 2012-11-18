@@ -26,12 +26,6 @@ get '/two' do
   erb :index2
 end
 
-get '/assets/empowermi.js' do
-  content_type "text/javascript"
-  CoffeeScript.compile File.read(Pathname.getwd.join("app/assets/javascripts/empowermi.js.coffee"))
-end
-
-
 get '/api/?:persona_id?' do |id|
   content_type :json
   id = id.to_s.to_sym
