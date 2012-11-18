@@ -54,7 +54,7 @@
       "description" => "A Standby saver turns off your gadgets automatically and helps reduce your usage",
       "how_it_works" => "A Standby saver turns off your gadgets automatically and helps reduce your usage",
       "help_available" => "Many councils and energy companies offer free Standby saver.",
-      "color" => "#D29680"
+      "color" => "#595E46"
     },
     { 
       "id" => "energy-bill",
@@ -63,7 +63,7 @@
       "description" => "If you have halogen downlights replacing them with more efficent LEDs can give you big savings.",
       "how_it_works" => "If you have halogen downlights replacing them with more efficent LEDs can give you big savings.",
       "help_available" => "You can take out a Green Deal loan against your energy bill",
-      "color" => "#FF5353"
+      "color" => "#98945E"
     }
   ]
 }
