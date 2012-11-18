@@ -57,6 +57,7 @@ h =
   check: (key, value) ->
     @toDraw[key] = value
     @toDraw[keyStat] -= value
+    
 
   unCheck: (key, value) ->
     @toDraw[keyStat] += value
@@ -70,7 +71,10 @@ h =
         parse personaData
         showRec()
         h.drawChart()
-
+        h.updateTotalSpending()
+  
+  updateTotalSpending: ->
+    $("h4:first").html("Last year you spent £#{h.toDraw[keyStat]} on your energy")
   drawChart: ->
     $("#chart").html ""
     r = Raphael("chart")
