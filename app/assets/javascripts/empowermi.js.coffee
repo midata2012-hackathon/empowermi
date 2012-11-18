@@ -51,17 +51,19 @@ keyStat = "Energy bill"
 
 #main object
 h =
+  maxSpending: 0
   toDraw: {}
   recommendations: {}
   colors: {}
   check: (key, value) ->
     @toDraw[key] = value
     @toDraw[keyStat] -= value
-    
+    h.updateSavings() 
 
   unCheck: (key, value) ->
     @toDraw[keyStat] += value
     delete @toDraw[key]
+    h.updateSavings() 
 
   apiCall: (personaId) ->
     personaId ||= 'rbfish'
@@ -74,7 +76,10 @@ h =
         h.updateTotalSpending()
   
   updateTotalSpending: ->
+    h.maxSpending = h.toDraw[keyStat]
     $("h4:first").html("Last year you spent £#{h.toDraw[keyStat]} on your energy")
+  updateSavings: ->
+    $("h4.new_figure").html("Projected savings £#{Math.abs (h.toDraw[keyStat] - h.maxSpending).toFixed(2)} on your energy")
   drawChart: ->
     $("#chart").html ""
     r = Raphael("chart")
