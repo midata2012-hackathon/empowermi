@@ -22,6 +22,10 @@ get '/' do
   erb :index
 end
 
+get '/two' do
+  erb :index2
+end
+
 get '/api/?:persona_id?' do |id|
   content_type :json
   id = id.to_s.to_sym
