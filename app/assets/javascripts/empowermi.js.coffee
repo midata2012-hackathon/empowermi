@@ -1,23 +1,27 @@
 #internals
 recTemplate = (text, value) ->
+  console.log(value)
   id = _.uniqueId("rec-item-")
   box = $("<input />",
     id: id
     name: id
     type: "checkbox"
-    value: value
+    value: value.saving
   ).change(->
     if $(this).is(":checked")
-      h.check text, value
+      h.check text, value.saving
     else
-      h.unCheck text, value
+      h.unCheck text, value.saving
     h.drawChart()
   )
   label = $("<label />",
     for: id
     text: text
   )
-  $('<li class="recommended-item">').append(box).append label
+  description = $("<span />",
+    text: value.description
+  )
+  $('<li class="recommended-item">').append(box).append(label).append(description)
 
 showRec = ->
   container = $("#recommendations ul")
@@ -33,7 +37,7 @@ parse = (personaData) ->
   showPersonalInformation(personaData)
   h.toDraw[keyStat] = personaData.spendings[0].cost
   $.each personaData.recommendations, (i, r) ->
-    h.recommendations[r.recommendation] = r.saving
+    h.recommendations[r.recommendation] = r 
     h.colors[r.recommendation] = r.color
 
 colorForItem = (name) ->
