@@ -25,7 +25,7 @@ recTemplate = (text, value) ->
   image = $("<img />",
     src: "images/#{slug}.jpg"
   )
-  $('<li class="recommended-item">').append(box).append(label).append(image).append(description)
+  $('<li class="recommended-item">').append(image).append(box).append(label).append(description)
 
 showRec = ->
   container = $("#recommendations ul")
