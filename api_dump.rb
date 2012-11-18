@@ -197,7 +197,7 @@ class ApiResponse
       persona  = Persona.new(persona_id)
       
       template[:name]     = persona.g(:name)
-      template[:postocde] = persona.g(:postcode)
+      template[:postcode] = persona.g(:postcode)
       template[:spendings] << spending_template(persona.energy_bill)
       template[:recommendations] = $recommendations[persona.property_type.gsub(/\s+/,'').downcase]
 
