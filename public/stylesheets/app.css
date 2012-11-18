@@ -14,6 +14,22 @@
 ----------------------------------------- */
 
 
+body{
+  background-image: url(../images/bg.png);
+}
+
+h2, h3{
+  font-family: "Rokkitt", serif;
+}
+
+div.wrapper{
+  background-color: #fefefe;
+  border: 1px solid #DDD;
+  padding: 15px;
+  box-shadow: 2px 2px 2px #DEDEDE;
+
+}
+
 
 /* -----------------------------------------
    Page Name 1
