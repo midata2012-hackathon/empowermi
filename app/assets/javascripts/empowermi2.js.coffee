@@ -1,21 +1,5 @@
 #internals
-#
-r = {
-   "name": "scale",
-   "children": [
-    {"name": "IScaleMap", "size": 2105},
-    {"name": "LinearScale", "size": 1316},
-    {"name": "LogScale", "size": 3151},
-    {"name": "OrdinalScale", "size": 3770},
-    {"name": "QuantileScale", "size": 2435},
-    {"name": "QuantitativeScale", "size": 4839},
-    {"name": "RootScale", "size": 1756},
-    {"name": "Scale", "size": 4268},
-    {"name": "ScaleType", "size": 1821},
-    {"name": "TimeScale", "size": 5833}
-   ]
-  }
-      
+
 recTemplate = (text, value) ->
   id = _.uniqueId("rec-item-")
   box = $("<input />",
@@ -63,7 +47,8 @@ h =
     delete @toDraw[key]
 
   apiCall: (personaId) ->
-    $.ajax "/api",
+    personaId ||= 'rbfish'
+    $.ajax "/api/#{personaId}",
       dataType: "json"
       success: (personaData) ->
         parse personaData
@@ -111,6 +96,6 @@ h =
 
 #on-load
 $ ->
-  h.apiCall ""
+  h.apiCall window.personaId
 
 window.h = h

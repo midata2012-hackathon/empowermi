@@ -104,6 +104,9 @@
   <!-- Initialize JS Plugins -->
   <script src="javascripts/app.js"></script>
   <script src="<%=asset_path('empowermi.js')%>"></script>
+  <script type="text/javascript">
+    window.personaId = '<%= params['persona_id'] %>';
+  </script>
   
 </body>
 </html>

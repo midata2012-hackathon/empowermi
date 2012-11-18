@@ -49,7 +49,8 @@ h =
     delete @toDraw[key]
 
   apiCall: (personaId) ->
-    $.ajax "/api",
+    personaId ||= 'rbfish'
+    $.ajax "/api#{personaId}",
       dataType: "json"
       success: (personaData) ->
         parse personaData
@@ -73,6 +74,6 @@ h =
 
 #on-load
 $ ->
-  h.apiCall ""
+  h.apiCall window.personaId
 
 window.h = h

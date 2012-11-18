@@ -102,6 +102,9 @@
   <!-- Initialize JS Plugins -->
   <script src="javascripts/app.js"></script>
   <script src="<%=asset_path('empowermi2.js')%>"></script>
+  <script type="text/javascript">
+    window.personaId = '<%= params['persona_id'] %>';
+  </script>
   <style type="text/css">
     circle {
       fill: rgb(31, 119, 180);
