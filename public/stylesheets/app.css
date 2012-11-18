@@ -20,7 +20,19 @@
 ----------------------------------------- */
 
 
+#chart {
+  background: #ddd 
+  margin: 0 auto;
+  width: 310px;
+  height: 480px;
+}
 
+#recommendations ul {
+  list-style-type: none;
+}
+#recommendations input {
+  float: left;
+}
 
 /* -----------------------------------------
    Page Name 2

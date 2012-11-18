@@ -1,69 +1,85 @@
-var jsonp = function(data) {
-    $('#name').html(data.name);
-    displayRecomendations(data.recommendations);
-    drawChart(data.spendings);
-    
-};
+(function($){
 
-var displayRecomendations = function(recommendations) {
-    var recommendationsEl = document.createElement("ul");
-    $.each(recommendations, function(index, value) { 
-        var listEl = document.createElement("li");       
+  //internals
+  var keyStat = 'Energy bill';
+  
+  function recTemplate(text, value) {
+    var id = _.uniqueId('rec-item-')
+    var box = $('<input />', {id: id, name: id, type: 'checkbox', value: value}).change(function(){
+      if($(this).is(':checked')) {
+        h.check(text, value);
+      } else {
+        h.unCheck(text, value);
+      }
+      h.drawChart();
     });
-}
+    var label = $('<label />', {for: id, text: text});
+    return $('<li class="recommended-item">').append(box).append(label)
+  };
 
-var dataToDraw = {};
+  function showRec() {
+    var container = $("#recommendations ul");
+    $.each(h.recommendations, function(text, value){
+      container.append(recTemplate(text, value));
+    });
+  };
 
-var drawChart = function(spendings) {
-    var chartWidth = $('#chart').width(),
-        chartHeight = 500;
+  function parse(personaData) {
+    h.toDraw[keyStat] = personaData.spendings[0].cost
+    $.each(personaData.recommendations, function(i,r){
+      h.recommendations[r.recommendation] = r.saving;
+      h.colors[r.recommendation] = r.color;
+    });
+  };
 
-    dataToDraw[spendings[0]["name"]] = spendings[0]["cost"];
-  // Suppose there is currently one div with id "d3TutoGraphContainer" in the DOM
-  // We append a 600x300 empty SVG container in the div
-  var chart = d3.select("#chart").append("svg").attr("width", chartWidth).attr("height", chartHeight);
+  function colorForItem(name) {
+    return Raphael.color(h.colors[name]||"#4AE371");
+  };
+  
+  //main object
+  var h = {
+    toDraw: {},
+    recommendations: {},
+    colors: {},
+    check: function(key, value) {
+      this.toDraw[key] = value;
+      this.toDraw[keyStat] -= value;
+    },
+    unCheck: function(key, value) {
+      this.toDraw[keyStat] += value;
+      delete this.toDraw[key]; 
+    },
+    apiCall: function(personaId) {
+      $.ajax('/api', {
+        dataType: 'json',
+        success: function(personaData){
+          parse(personaData)
+          showRec();
+          h.drawChart();
+        }
+      });
+    },
+    drawChart: function() {
+      $("#chart").html('')
+      var r = Raphael("chart"),
+      data = [],
+      colors = [],
+      txtattr = { font: "12px sans-serif" };
 
-  var actualHeight = 0;
+      //r.text(480, 250, 'Multiline Series Stacked Vertical Chart. Type "round"').attr(txtattr);
 
-  // Create the bar chart which consists of ten SVG rectangles, one for each piece of data
-  var rects = chart.selectAll('rect').data([1 ,4, 5, 6, 24, 8, 12, 1, 1, 200])
-                   .enter().append('rect')
-                   .attr("stroke", "none")
-                    .attr("text-anchor", "end")
-                    .text('ala')
-                    .attr("fill", function(d,i) {var color = 'rgb(' + i * 20 + ',' + i * 30  +',100)'; return color })
-                   .attr("x", 0)
-                   .attr("y", function(d) { toReturn = actualHeight; actualHeight+=d; return toReturn } )
-                   .attr("width", chartWidth /*function(d) { return 20 * d; }*/ )
-                   .attr("height", function(d) {return d});
-
-  // Transition on click managed by jQuery
-  rects.on('click', function() {
-    // Generate randomly a data set with 10 elements
-    var newData = [];
-    for (var i=0; i<10; i+=1) { newData.push(Math.floor(24 * Math.random())); }
-
-    // Generate a random color
-    var newColor = 'rgb(' + Math.floor(255 * Math.random()) +
-                     ', ' + Math.floor(255 * Math.random()) +
-                     ', ' + Math.floor(255 * Math.random()) + ')';
-
-    rects.data(newData)
-         .transition().duration(2000).delay(200)
-         .attr("width", function(d) { return d * 20; } )
-         .attr("fill", newColor);
+      for(var key in (h.toDraw)) {
+        data.push([h.toDraw[key]]);
+        colors.push(colorForItem(key))
+      }
+      r.barchart(0, 0, 300, 400, data, {stacked: true, colors: colors});
+    }
+  };
+  
+  //on-load
+  $(function(){
+    h.apiCall('');
   });
-    
-}
-
-var checked = function(key,value) {
-console.log('check');
-    dataToDraw[key] = value;
-    dataToDraw['Energy bill'] -= value;
-}
-
-var unchecked = function(key,value) {
-console.log('uncheck');
-    dataToDraw['Energy bill'] += value;
-    delete dataToDraw[key]; 
-}
+  
+  window.h = h;
+})(jQuery)
