@@ -24,7 +24,13 @@ showRec = ->
   $.each h.recommendations, (text, value) ->
     container.append recTemplate(text, value)
 
+showPersonalInformation = (personaData) ->
+  $("#name").html(personaData.name)
+  $("#postcode").html(personaData.postcode)
+  $("#property").html(personaData.property_type)
+
 parse = (personaData) ->
+  showPersonalInformation(personaData)
   h.toDraw[keyStat] = personaData.spendings[0].cost
   $.each personaData.recommendations, (i, r) ->
     h.recommendations[r.recommendation] = r.saving
