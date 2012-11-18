@@ -18,14 +18,14 @@ recTemplate = (text, value) ->
     for: id
     text: text
   )
-  description = $("<span />",
-    text: value.description
-  )
+  how_it_works = "<div><strong>How it works:</strong> #{value.how_it_works}</div>" 
+  help_available = "<div><strong>Help available:</strong> #{value.help_available}</div>" 
+
   slug = value.recommendation.toLowerCase().replace(/\s/g, "-")
   image = $("<img />",
     src: "images/#{slug}.jpg"
   )
-  $('<li class="recommended-item">').append(image).append(box).append(label).append(description)
+  $('<li class="recommended-item">').append(image).append(box).append(label).append(how_it_works).append(help_available)
 
 showRec = ->
   container = $("#recommendations ul")
