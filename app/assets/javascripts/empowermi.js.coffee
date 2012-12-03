@@ -23,7 +23,7 @@ recTemplate = (text, value) ->
 
   slug = value.recommendation.toLowerCase().replace(/\s/g, "-")
   image = $("<img />",
-    src: "images/#{slug}.jpg"
+    src: "/images/#{slug}.jpg"
   )
   $('<li class="recommended-item">').append(image).append(box).append(label).append(how_it_works).append(help_available)
 
@@ -67,7 +67,9 @@ h =
 
   apiCall: (personaId) ->
     personaId ||= 'rbfish'
-    $.ajax "/api#{personaId}",
+    apiPath = "/api#{personaId}"
+    # apiPath = "/data/#{personaId}.json"
+    $.ajax apiPath,
       dataType: "json"
       success: (personaData) ->
         parse personaData

@@ -19,11 +19,11 @@ def asset_path(asset)
 end
 
 get '/' do
-  erb :index
+  erb :login
 end
 
-get '/two' do
-  erb :index2
+get '/recommendations/:persona_id' do
+  erb :index
 end
 
 get '/api/?:persona_id?' do |id|

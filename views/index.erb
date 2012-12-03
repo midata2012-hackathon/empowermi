@@ -1,48 +1,7 @@
-<!DOCTYPE html>
-
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
-
-  <!-- Set the viewport width to device width for mobile -->
-  <meta name="viewport" content="width=device-width" />
-
-  <title>emPowerMi</title>
-  
-  <!-- Included CSS Files (Uncompressed) -->
-  <!--
-  <link rel="stylesheet" href="stylesheets/foundation.css">
-  -->
-  
-  <!-- Included CSS Files (Compressed) -->
-  <link rel="stylesheet" href="stylesheets/foundation.min.css">
-  <link rel="stylesheet" href="stylesheets/app.css">
-  <link href="https://fonts.googleapis.com/css?family=Rokkitt:400,700" media="screen" rel="stylesheet" type="text/css">
-  <script src="javascripts/modernizr.foundation.js"></script>
-
-  <!-- IE Fix for HTML5 Tags -->
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-
-</head>
-<body>
-
-  <div class="row">
-    <div class="twelve columns">
-      <h2 class="title">emPowerMi</h2>
-      <p>What can I do, right now?</p>
-      <hr />
-    </div>
-  </div>
 
   <div class="row wrapper">
     <div class="twelve columns">
-      <h3>MiData energy saving recommendations for <span id="name"><span></h3>
+      <h3>Midata energy saving recommendations for <span id="name"><span></h3>
   </div>
 
   <div class="row">
@@ -59,62 +18,18 @@
 
       <ul>
       </ul>
-      <a class="success button" href="#">I want these </a>
+      <a class="success button" href="#" data-reveal-id="nextModal">I want these </a>
     </div>
+    <div id="nextModal" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden; display: none;">
+    <h2>What would happen next?</h2>
+    <p>
+      <ol>
+        <li>We would ask some qualifing questions on the technologies you are interested in</li>
+        <li>... and ask if you are happy with us sending your details to get a quote</li>
+        <li>... and forward your details to the relevant companies</li>
+      </ol>
+    </p>
+    <a class="close-reveal-modal">×</a>
+  </div>
   </div>
 
-
-  
-  <!-- Included JS Files (Uncompressed) -->
-  <!--
-  
-  <script src="javascripts/jquery.js"></script>
-  
-  <script src="javascripts/jquery.foundation.mediaQueryToggle.js"></script>
-  
-  <script src="javascripts/jquery.foundation.forms.js"></script>
-  
-  <script src="javascripts/jquery.foundation.reveal.js"></script>
-  
-  <script src="javascripts/jquery.foundation.orbit.js"></script>
-  
-  <script src="javascripts/jquery.foundation.navigation.js"></script>
-  
-  <script src="javascripts/jquery.foundation.buttons.js"></script>
-  
-  <script src="javascripts/jquery.foundation.tabs.js"></script>
-  
-  <script src="javascripts/jquery.foundation.tooltips.js"></script>
-  
-  <script src="javascripts/jquery.foundation.accordion.js"></script>
-  
-  <script src="javascripts/jquery.placeholder.js"></script>
-  
-  <script src="javascripts/jquery.foundation.alerts.js"></script>
-  
-  <script src="javascripts/jquery.foundation.topbar.js"></script>
-  
-  <script src="javascripts/jquery.foundation.joyride.js"></script>
-  
-  <script src="javascripts/jquery.foundation.clearing.js"></script>
-  
-  <script src="javascripts/jquery.foundation.magellan.js"></script>
-  
-  -->
-  
-  <!-- Included JS Files (Compressed) -->
-  <script src="javascripts/underscore.js"></script>
-  <script src="javascripts/jquery.js"></script>
-  <script src="javascripts/raphael.js"></script>
-  <script src="javascripts/g.raphael.js"></script>
-  <script src="javascripts/g.bar.js"></script>
-  
-  <!-- Initialize JS Plugins -->
-  <script src="javascripts/app.js"></script>
-  <script src="<%=asset_path('empowermi.js')%>"></script>
-  <script type="text/javascript">
-    window.personaId = '<%= params['persona_id'] %>';
-  </script>
-  
-</body>
-</html>
