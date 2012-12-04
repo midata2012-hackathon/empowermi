@@ -67,8 +67,8 @@ h =
 
   apiCall: (personaId) ->
     personaId ||= 'rbfish'
-    apiPath = "/api#{personaId}"
-    # apiPath = "/data/#{personaId}.json"
+    # apiPath = "/api#{personaId}"
+    apiPath = "/data/#{personaId}.json"
     $.ajax apiPath,
       dataType: "json"
       success: (personaData) ->
