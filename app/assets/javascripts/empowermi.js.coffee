@@ -79,9 +79,10 @@ h =
   
   updateTotalSpending: ->
     h.maxSpending = h.toDraw[keyStat]
-    $("h4:first").html("Last year you spent £#{h.toDraw[keyStat]} on your energy")
+    $("h4:first").html("Last year your energy bills were £#{h.toDraw[keyStat]}")
   updateSavings: ->
-    $("h4.new_figure").html("Projected savings £#{Math.abs (h.toDraw[keyStat] - h.maxSpending).toFixed(2)} on your energy")
+    saving = Math.abs (h.toDraw[keyStat] - h.maxSpending).toFixed(2)
+    $("h4.new_figure").html("Projected yearly savings on your energy bills £#{saving}")
   drawChart: ->
     $("#chart").html ""
     r = Raphael("chart")

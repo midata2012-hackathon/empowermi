@@ -5,7 +5,7 @@
       "saving" => 90,
       "recommendation" => "Solar PV panels",
       "description"=> "Generate your own electricity and earn over £500 a year from Feed-in tariff.",
-      "how_it_works" => "Put panels on your roof and generate electrictity from the sun",
+      "how_it_works" => "Put solar panels on your roof and generate electricity from the sun",
       "help_available" => "You can pay for your panels and make a 5-10% return with earning from the Feed-in Tariff",
       "color" => "#D2E0D3"
     },
@@ -31,7 +31,7 @@
       "id" => "energy-bill",
       "saving"  => 300,
       "recommendation"  => "New boiler",
-      "description" => "If you have a old inefficient boiler, a new boiler can give you big savings. Funding avaialbe via the Green Deal.",
+      "description" => "If you have a old inefficient boiler, a new boiler can give you big savings. Funding available via the Green Deal.",
       "how_it_works" => "If you have a old inefficient boiler, a new boiler can give you big savings.",
       "help_available" => "You can take out a Green Deal loan against your energy bill",
       "color" => "#5C7D5E"

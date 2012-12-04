@@ -61,7 +61,7 @@ div.wrapper{
 }
 
 #chart {
-  background: #ddd; 
+/*  background: #ddd; */
   margin: 0 auto;
   width: 310px;
   height: 390px;
